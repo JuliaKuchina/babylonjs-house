@@ -16,7 +16,8 @@ import "@babylonjs/core/Materials/Textures/Loaders/envTextureLoader";
 
 
 // digital assets
-import controllerModel from "../../assets/glb/samsung-controller.glb";
+// import controllerModel from "../../assets/glb/samsung-controller.glb";
+import controllerModel from "../../assets/glb/haunted_house.glb";
 import roomEnvironment from "../../assets/environment/room.env"
 
 export class LoadModelAndEnvScene implements CreateSceneClass {
@@ -49,10 +50,10 @@ export class LoadModelAndEnvScene implements CreateSceneClass {
         scene.environmentTexture = new CubeTexture(roomEnvironment, scene);
 
         // if not setting the envtext of the scene, we have to load the DDS module as well
-        new EnvironmentHelper( {
-            skyboxTexture: roomEnvironment,
-            createGround: false
-        }, scene)
+        // new EnvironmentHelper( {
+        //     skyboxTexture: roomEnvironment,
+        //     createGround: false
+        // }, scene)
 
         // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
         const light = new HemisphericLight(

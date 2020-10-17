@@ -3,24 +3,24 @@ import { getSceneModuleWithName } from "./createScene";
 
 const getModuleToLoad = (): string | undefined => {
     // ATM using location.search
-    if(!location.search) {
+    if (!location.search) {
         return;
     } else {
-        return location.search.substr(location.search.indexOf('scene=') + 6);
+        return location.search.substr(location.search.indexOf("scene=") + 6);
     }
-}
+};
 
-export const babylonInit = async (): Promise<void>  => {
+export const babylonInit = async (name?: string): Promise<void> => {
     // get the module to load
     const moduleName = getModuleToLoad();
-    const createSceneModule = await getSceneModuleWithName(moduleName);
+    const createSceneModule = await getSceneModuleWithName(name || moduleName);
 
     // Execute the pretasks, if defined
     await Promise.all(createSceneModule.preTasks || []);
     // Get the canvas element
-    const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement; 
+    const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
     // Generate the BABYLON 3D engine
-    const engine = new Engine(canvas, true); 
+    const engine = new Engine(canvas, true);
 
     // Create the scene
     const scene = await createSceneModule.createScene(engine, canvas);
@@ -34,8 +34,25 @@ export const babylonInit = async (): Promise<void>  => {
     window.addEventListener("resize", function () {
         engine.resize();
     });
-}
+};
 
 babylonInit().then(() => {
     // scene started rendering, everything is initialized
 });
+const button = document.getElementById("toggle") as HTMLElement;
+console.log("button", button);
+let name = "defaultWithTexture";
+
+button.onclick = async () => {
+    console.log("onclick");
+    name =
+        name === "defaultWithTexture"
+            ? "defaultWithTextureMesh"
+            : "defaultWithTexture";
+    await babylonInit(name);
+};
+
+// button.addEventListener("onclick", async () => {
+//     console.log('onclick')
+//     babylonInit("defaultWithTextureMesh");
+// });
