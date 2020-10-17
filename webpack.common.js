@@ -12,6 +12,7 @@ module.exports = {
     entry: path.resolve(appDirectory, "src/index.ts"),
     output: {
         filename: 'js/babylonBundle.js',
+        path: path.resolve(__dirname, 'docs'),
     },
     resolve: {
         extensions: ['.ts', '.js']

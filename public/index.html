@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Babylon.js webpack starter-kit</title>
+        <meta
+            name="description"
+            content="A sample project based on Babylon.js, written in typescript, built with webpack"
+        />
+        <meta name="author" content="Raanan Weber" />
+        <style>
+            html,
+            body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+            #toggle {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                display: inline-block;
+                font-weight: 400;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                border: 1px solid transparent;
+                padding: 0.375rem 0.75rem;
+                font-size: 1rem;
+                line-height: 1.5;
+                border-radius: 0.25rem;
+                transition: color 0.15s ease-in-out,
+                    background-color 0.15s ease-in-out,
+                    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+            #toggle:hover {
+                color: #fff;
+                background-color: #5a6268;
+                border-color: #545b62;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="renderCanvas" touch-action="none"></canvas>
+        <button id="toggle">Toggle Spooky View</button>
+    </body>
+</html>
