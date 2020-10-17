@@ -1,5 +1,6 @@
 import { Engine } from "@babylonjs/core/Engines/engine";
 import { getSceneModuleWithName } from "./createScene";
+import { CustomLoadingScreen } from "./CustomLoadingScreen";
 
 const getModuleToLoad = (): string | undefined => {
     // ATM using location.search
@@ -22,14 +23,25 @@ export const babylonInit = async (name?: string): Promise<void> => {
     // Generate the BABYLON 3D engine
     const engine = new Engine(canvas, true);
 
+    const loadingScreen = new CustomLoadingScreen("I'm loading!!");
+    // replace the default loading screen
+    engine.loadingScreen = loadingScreen;
+    // show the loading screen
+    engine.displayLoadingUI();
+
+    /*
+     * create your scene over here
+     */
+
     // Create the scene
     const scene = await createSceneModule.createScene(engine, canvas);
 
     // Register a render loop to repeatedly render the scene
-    engine.runRenderLoop(function () {
-        scene.render();
+    engine.runRenderLoop(async function () {
+       await scene.render();
     });
-
+    // hide the loading screen when you want to
+    engine.hideLoadingUI();
     // Watch for browser/canvas resize events
     window.addEventListener("resize", function () {
         engine.resize();

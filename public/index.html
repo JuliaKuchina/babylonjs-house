@@ -3,7 +3,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
         <title>Babylon.js webpack starter-kit</title>
         <meta
             name="description"
@@ -18,6 +21,8 @@
                 height: 100%;
                 margin: 0;
                 padding: 0;
+                background-color: #262626;
+                font-family: "Roboto", sans-serif;
             }
 
             #renderCanvas {
@@ -52,11 +57,41 @@
                 background-color: #5a6268;
                 border-color: #545b62;
             }
+            #loading {
+                background-color: #262626;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.9);
+                letter-spacing: 2px;
+            }
+            #loading div {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #loading img {
+                margin-top: -20px;
+            }
+            #loadingText.hidden,
+            #loading.hidden {
+                display: none;
+            }
         </style>
     </head>
 
     <body>
         <canvas id="renderCanvas" touch-action="none"></canvas>
+        <div id="loading">
+            <div>
+                <h1>Loading...</h1>
+                <img src="82e35f1e515f29b11be6d8abf196df40.gif" />
+            </div>
+        </div>
         <button id="toggle">Toggle Spooky View</button>
     </body>
 </html>
