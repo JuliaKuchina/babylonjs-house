@@ -38,7 +38,7 @@ export const babylonInit = async (name?: string): Promise<void> => {
 
     // Register a render loop to repeatedly render the scene
     engine.runRenderLoop(async function () {
-       await scene.render();
+        await scene.render();
     });
     // hide the loading screen when you want to
     engine.hideLoadingUI();
@@ -52,9 +52,7 @@ babylonInit().then(() => {
     // scene started rendering, everything is initialized
 });
 const button = document.getElementById("toggle") as HTMLElement;
-console.log("button", button);
 let name = "defaultWithTexture";
-
 button.onclick = async () => {
     console.log("onclick");
     name =

@@ -7,12 +7,11 @@
             href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
         />
-        <title>Babylon.js webpack starter-kit</title>
+        <title>Spooky House</title>
         <meta
             name="description"
             content="A sample project based on Babylon.js, written in typescript, built with webpack"
         />
-        <meta name="author" content="Raanan Weber" />
         <style>
             html,
             body {
@@ -23,6 +22,8 @@
                 padding: 0;
                 background-color: #262626;
                 font-family: "Roboto", sans-serif;
+                color: rgba(255, 255, 255, 0.9);
+                letter-spacing: 2px;
             }
 
             #renderCanvas {
@@ -48,12 +49,15 @@
                 font-size: 1rem;
                 line-height: 1.5;
                 border-radius: 0.25rem;
+                background-color: #612e8d;
+                background-color: #015249;
+                letter-spacing: 1px;
+                color: rgba(255, 255, 255, 0.9);
                 transition: color 0.15s ease-in-out,
                     background-color 0.15s ease-in-out,
                     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
             }
             #toggle:hover {
-                color: #fff;
                 background-color: #5a6268;
                 border-color: #545b62;
             }
@@ -65,8 +69,6 @@
                 right: 0;
                 bottom: 0;
                 text-align: center;
-                color: rgba(255, 255, 255, 0.9);
-                letter-spacing: 2px;
             }
             #loading div {
                 position: absolute;
@@ -86,12 +88,7 @@
 
     <body>
         <canvas id="renderCanvas" touch-action="none"></canvas>
-        <div id="loading">
-            <div>
-                <h1>Loading...</h1>
-                <img src="82e35f1e515f29b11be6d8abf196df40.gif" />
-            </div>
-        </div>
+        <div id="loading"></div>
         <button id="toggle">Toggle Spooky View</button>
     </body>
 </html>
